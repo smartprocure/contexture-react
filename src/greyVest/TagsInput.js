@@ -58,24 +58,13 @@ let TagsInput = forwardRef(
             padding: 2,
           }}
         >
-          {_.map(
-            t => (
-              <Tag
-                key={t}
-                value={t}
-                {...{ removeTag, tagStyle }}
-                onClick={() => onTagClick(t)}
-              />
-            ),
-            tags
-          )}
           <input
             style={{
               border: 'none',
               outline: 'none',
               flex: 1,
               margin: 3,
-              minWidth: 120,
+              minWidth: 250,
             }}
             ref={inputRef}
             onChange={e => {
@@ -111,6 +100,17 @@ let TagsInput = forwardRef(
             placeholder={placeholder}
             {...props}
           />
+          {_.map(
+            t => (
+              <Tag
+                key={t}
+                value={t}
+                {...{ removeTag, tagStyle }}
+                onClick={() => onTagClick(t)}
+              />
+            ),
+            tags
+          )}
         </Flex>
       </div>
     )
